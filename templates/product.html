@@ -19,7 +19,7 @@
                 <i class="ph ph-star-half"></i>
                 <span>(42 reviews)</span>
             </div>
-            <p class="product-detail-price">${{ "%.2f"|format(product.price) }}</p>
+            <p class="product-detail-price">{{ "%.0f"|format(product.price) }} MRO</p>
             <p class="product-detail-desc">{{ product.description }}</p>
             <div class="product-actions">
                 <form action="/purchase/{{ product.id }}" method="POST" style="display:inline;">
@@ -29,7 +29,7 @@
             </div>
             <div class="product-meta">
                 <p><i class="ph-fill ph-check-circle" style="color: var(--success);"></i> In Stock</p>
-                <p><i class="ph ph-truck"></i> Free shipping on orders over $50</p>
+                <p><i class="ph ph-truck"></i> Free shipping on orders over 50 MRO</p>
                 <p><i class="ph ph-arrows-counter-clockwise"></i> 30-day easy returns</p>
             </div>
         </div>

@@ -39,7 +39,7 @@
     <div class="feature-card">
         <div class="feature-icon"><i class="ph ph-truck"></i></div>
         <h3>Free Shipping</h3>
-        <p>On orders over $50</p>
+        <p>On orders over 50 MRO</p>
     </div>
     <div class="feature-card">
         <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
@@ -74,7 +74,7 @@
             <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
             <p>{{ product.description[:50] }}{% if product.description|length > 50 %}...{% endif %}</p>
             <div class="product-footer">
-                <span class="price">${{ "%.2f"|format(product.price) }}</span>
+                <span class="price">{{ "%.0f"|format(product.price) }} MRO</span>
                 <a href="/product/{{ product.id }}" class="btn btn-sm btn-primary"><i class="ph ph-shopping-cart"></i></a>
             </div>
         </div>

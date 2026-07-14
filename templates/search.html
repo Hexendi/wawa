@@ -41,7 +41,7 @@
                         <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
                         <p>{{ product.description[:50] }}...</p>
                         <div class="product-footer">
-                            <span class="price">${{ "%.2f"|format(product.price) }}</span>
+                            <span class="price">{{ "%.0f"|format(product.price) }} MRO</span>
                         </div>
                     </div>
                 </div>

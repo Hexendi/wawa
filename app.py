@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import random
 from flask import Flask, request, render_template, session, redirect, jsonify, make_response
 
 app = Flask(__name__)
@@ -66,16 +67,18 @@ init_db()
 @app.route('/')
 def index():
     conn = get_db()
-    products = conn.execute('SELECT * FROM products ORDER BY price DESC').fetchall()
-    featured = products[:4]
+    products = list(conn.execute('SELECT * FROM products').fetchall())
     conn.close()
+    random.shuffle(products)
+    featured = products[:4]
     return render_template('index.html', featured=featured, products=products)
 
 @app.route('/shop')
 def shop():
     conn = get_db()
-    products = conn.execute('SELECT * FROM products').fetchall()
+    products = list(conn.execute('SELECT * FROM products').fetchall())
     conn.close()
+    random.shuffle(products)
     return render_template('shop.html', products=products)
 
 @app.route('/product/<int:pid>')
