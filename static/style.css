@@ -785,6 +785,69 @@ main {
     font-weight: 500;
 }
 
+/* ===== PURCHASE ===== */
+.purchase-container { max-width: 500px; margin: 2rem auto; }
+
+.purchase-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.purchase-icon {
+    font-size: 3.5rem;
+    color: var(--success);
+    margin-bottom: 1rem;
+}
+
+.purchase-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.purchase-subtitle {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.purchase-details {
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.purchase-field {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.purchase-field:last-child { border-bottom: none; }
+
+.purchase-field label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.purchase-field span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.purchase-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
 /* ===== EMPTY CART ===== */
 .empty-cart {
     text-align: center;

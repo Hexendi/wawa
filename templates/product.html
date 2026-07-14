@@ -18,7 +18,9 @@
             <p class="product-detail-price">${{ "%.2f"|format(product.price) }}</p>
             <p class="product-detail-desc">{{ product.description }}</p>
             <div class="product-actions">
-                <button class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                <form action="/purchase/{{ product.id }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                </form>
                 <button class="btn btn-secondary btn-lg"><i class="fas fa-heart"></i> Wishlist</button>
             </div>
             <div class="product-meta">

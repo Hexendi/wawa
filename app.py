@@ -87,6 +87,17 @@ def product_detail(pid):
         return redirect('/shop')
     return render_template('product.html', product=product)
 
+@app.route('/purchase/<int:pid>', methods=['POST'])
+def purchase(pid):
+    conn = get_db()
+    product = conn.execute('SELECT * FROM products WHERE id = ?', (pid,)).fetchone()
+    conn.close()
+    if not product:
+        return redirect('/shop')
+    import random
+    order_id = random.randint(100000, 999999)
+    return render_template('purchase.html', product=product, order_id=order_id)
+
 @app.route('/profile')
 def profile():
     return render_template('profile.html')

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Purchase Confirmed{% endblock %}
+{% block content %}
+
+<div class="purchase-container">
+    <div class="purchase-card">
+        <div class="purchase-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Purchase Confirmed!</h1>
+        <p class="purchase-subtitle">Thank you for your order</p>
+
+        <div class="purchase-details">
+            <div class="purchase-field">
+                <label>Order ID</label>
+                <span>#{{ order_id }}</span>
+            </div>
+            <div class="purchase-field">
+                <label>Product</label>
+                <span>{{ product.name }}</span>
+            </div>
+            <div class="purchase-field">
+                <label>Amount</label>
+                <span>${{ "%.2f"|format(product.price) }}</span>
+            </div>
+        </div>
+
+        <div class="purchase-actions">
+            <a href="/api/files?id=receipt_{{ product.id }}.txt" class="btn btn-primary btn-lg" download>
+                <i class="fas fa-download"></i> Download Receipt
+            </a>
+            <a href="/shop" class="btn btn-secondary btn-lg">
+                <i class="fas fa-shopping-bag"></i> Continue Shopping
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
