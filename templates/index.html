@@ -7,40 +7,40 @@
         <h1>Welcome to <span class="highlight">WAWA SHOP</span></h1>
         <p>Discover premium tech and accessories at unbeatable prices. Your one-stop shop for everything digital.</p>
         <div class="hero-buttons">
-            <a href="/shop" class="btn btn-primary"><i data-lucide="shopping-bag"></i> Shop Now</a>
-            <a href="/search" class="btn btn-secondary"><i data-lucide="search"></i> Search Products</a>
+            <a href="/shop" class="btn btn-primary"><span class="material-symbols-rounded">shopping_bag</span> Shop Now</a>
+            <a href="/search" class="btn btn-secondary"><span class="material-symbols-rounded">search</span> Search Products</a>
         </div>
     </div>
     <div class="hero-image">
-        <i data-lucide="shopping-cart" class="hero-icon"></i>
+        <span class="material-symbols-rounded hero-icon">shopping_cart</span>
     </div>
 </section>
 
 <section class="features">
     <div class="feature-card">
-        <i data-lucide="truck"></i>
+        <span class="material-symbols-rounded">local_shipping</span>
         <h3>Free Shipping</h3>
         <p>On orders over $50</p>
     </div>
     <div class="feature-card">
-        <i data-lucide="shield-check"></i>
+        <span class="material-symbols-rounded">shield</span>
         <h3>Secure Payment</h3>
         <p>100% secure checkout</p>
     </div>
     <div class="feature-card">
-        <i data-lucide="rotate-ccw"></i>
+        <span class="material-symbols-rounded">replay</span>
         <h3>Easy Returns</h3>
         <p>30-day return policy</p>
     </div>
     <div class="feature-card">
-        <i data-lucide="headphones"></i>
+        <span class="material-symbols-rounded">headset_mic</span>
         <h3>24/7 Support</h3>
         <p>Dedicated support team</p>
     </div>
 </section>
 
 <section class="section-header">
-    <h2><i data-lucide="star"></i> Featured Products</h2>
+    <h2><span class="material-symbols-rounded">star</span> Featured Products</h2>
     <p>Top picks from our catalog</p>
 </section>
 
@@ -49,14 +49,14 @@
     <div class="product-card">
         <a href="/product/{{ product.id }}" class="product-image">
             <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
-            <div class="product-overlay"><i data-lucide="eye"></i> View Details</div>
+            <div class="product-overlay"><span class="material-symbols-rounded">visibility</span> View Details</div>
         </a>
         <div class="product-info">
             <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
             <p>{{ product.description[:50] }}{% if product.description|length > 50 %}...{% endif %}</p>
             <div class="product-footer">
                 <span class="price">${{ "%.2f"|format(product.price) }}</span>
-                <a href="/product/{{ product.id }}" class="btn btn-sm"><i data-lucide="shopping-cart"></i></a>
+                <a href="/product/{{ product.id }}" class="btn btn-sm"><span class="material-symbols-rounded">shopping_cart</span></a>
             </div>
         </div>
     </div>
@@ -64,12 +64,12 @@
 </div>
 
 <div class="text-center" style="margin-top: 2rem;">
-    <a href="/shop" class="btn btn-primary"><i data-lucide="layout-grid"></i> View All Products</a>
+    <a href="/shop" class="btn btn-primary"><span class="material-symbols-rounded">grid_view</span> View All Products</a>
 </div>
 
 <section class="newsletter">
     <div class="newsletter-content">
-        <h2><i data-lucide="mail"></i> Stay Updated</h2>
+        <h2><span class="material-symbols-rounded">mail</span> Stay Updated</h2>
         <p>Subscribe to our newsletter for exclusive deals and new arrivals.</p>
         <form class="newsletter-form">
             <input type="email" placeholder="Enter your email" required>

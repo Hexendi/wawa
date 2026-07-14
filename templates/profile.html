@@ -4,33 +4,33 @@
 
 <div class="profile-container">
     <div class="page-header">
-        <h1><i data-lucide="circle-user"></i> My <span>Profile</span></h1>
+        <h1><span class="material-symbols-rounded">account_circle</span> My <span>Profile</span></h1>
         <p>Your account information</p>
     </div>
 
     <div id="profileCard" class="profile-card">
         <div class="profile-avatar">
-            <i data-lucide="circle-user"></i>
+            <span class="material-symbols-rounded">account_circle</span>
         </div>
         <div class="profile-details">
             <div class="profile-field">
-                <label><i data-lucide="hash"></i> ID</label>
+                <label><span class="material-symbols-rounded">tag</span> ID</label>
                 <span id="pId">-</span>
             </div>
             <div class="profile-field">
-                <label><i data-lucide="user"></i> Username</label>
+                <label><span class="material-symbols-rounded">person</span> Username</label>
                 <span id="pUsername">-</span>
             </div>
             <div class="profile-field">
-                <label><i data-lucide="shield"></i> Role</label>
+                <label><span class="material-symbols-rounded">shield</span> Role</label>
                 <span id="pRole">-</span>
             </div>
             <div class="profile-field">
-                <label><i data-lucide="mail"></i> Email</label>
+                <label><span class="material-symbols-rounded">mail</span> Email</label>
                 <span id="pEmail">-</span>
             </div>
             <div class="profile-field">
-                <label><i data-lucide="info"></i> Bio</label>
+                <label><span class="material-symbols-rounded">info</span> Bio</label>
                 <span id="pBio">-</span>
             </div>
         </div>
@@ -48,7 +48,6 @@
             document.getElementById('pRole').textContent = data.role;
             document.getElementById('pEmail').textContent = data.email;
             document.getElementById('pBio').textContent = data.bio || 'N/A';
-            lucide.createIcons();
         });
 })();
 </script>

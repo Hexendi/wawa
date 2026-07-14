@@ -3,11 +3,11 @@
 {% block content %}
 
 <div class="form-container">
-    <h2><i data-lucide="lock"></i> Admin <span>Login</span></h2>
+    <h2><span class="material-symbols-rounded">lock</span> Admin <span>Login</span></h2>
 
     {% if error %}
     <div class="alert alert-error">
-        <i data-lucide="alert-circle"></i> {{ error }}
+        <span class="material-symbols-rounded">error</span> {{ error }}
     </div>
     {% endif %}
 
@@ -15,14 +15,14 @@
 
     <form method="POST" action="/admin">
         <div class="form-group">
-            <label for="username"><i data-lucide="user"></i> Username</label>
+            <label for="username"><span class="material-symbols-rounded">person</span> Username</label>
             <input type="text" id="username" name="username" placeholder="Enter admin username" required>
         </div>
         <div class="form-group">
-            <label for="password"><i data-lucide="key"></i> Password</label>
+            <label for="password"><span class="material-symbols-rounded">key</span> Password</label>
             <input type="password" id="password" name="password" placeholder="Enter admin password" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block"><i data-lucide="log-in"></i> Sign In</button>
+        <button type="submit" class="btn btn-primary btn-block"><span class="material-symbols-rounded">login</span> Sign In</button>
     </form>
 </div>
 

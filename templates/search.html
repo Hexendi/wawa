@@ -4,13 +4,13 @@
 
 <div class="search-container">
     <div class="page-header">
-        <h1><i data-lucide="search"></i> Search <span>Products</span></h1>
+        <h1><span class="material-symbols-rounded">search</span> Search <span>Products</span></h1>
         <p>Find what you're looking for in our catalog</p>
     </div>
 
     <div class="search-box">
         <form method="GET" action="/search">
-            <i data-lucide="search" class="search-icon"></i>
+            <span class="material-symbols-rounded search-icon">search</span>
             <input type="text" name="q" placeholder="Search by product name or description..." value="{{ query }}">
             <button type="submit">Search</button>
         </form>
@@ -19,12 +19,12 @@
     {% if query %}
     <div class="search-results">
         <div class="search-query-display">
-            <h3><i data-lucide="list"></i> Search results for: {{ query|safe }}</h3>
+            <h3><span class="material-symbols-rounded">list</span> Search results for: {{ query|safe }}</h3>
         </div>
 
         {% if xss_triggered %}
         <div class="flag-box">
-            <i data-lucide="flag"></i>
+            <span class="material-symbols-rounded">flag</span>
             <strong>Challenge Complete!</strong><br><br>
             <code>0xmr{r3fl3ct3d_xss_1nj3ct10n}</code>
         </div>
@@ -49,7 +49,7 @@
             </div>
         {% else %}
             <div class="no-results">
-                <i data-lucide="search-x"></i>
+                <span class="material-symbols-rounded">search_off</span>
                 <h3>No products found</h3>
                 <p>Try a different search term.</p>
             </div>

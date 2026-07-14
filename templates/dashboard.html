@@ -4,18 +4,18 @@
 
 <div class="dashboard">
     <div class="dashboard-header">
-        <h2><i data-lucide="layout-dashboard"></i> Admin Dashboard</h2>
-        <a href="/logout" class="btn btn-sm btn-logout"><i data-lucide="log-out"></i> Logout</a>
+        <h2><span class="material-symbols-rounded">dashboard</span> Admin Dashboard</h2>
+        <a href="/logout" class="btn btn-sm btn-logout"><span class="material-symbols-rounded">logout</span> Logout</a>
     </div>
 
     <div class="welcome-box">
-        <h3><i data-lucide="shield"></i> Welcome, {{ username }}!</h3>
+        <h3><span class="material-symbols-rounded">shield_person</span> Welcome, {{ username }}!</h3>
         <p>You are logged in as an administrator. From here you can manage products, users, and site settings.</p>
     </div>
 
     {% if flag %}
     <div class="flag-box">
-        <i data-lucide="flag"></i>
+        <span class="material-symbols-rounded">flag</span>
         <strong>Challenge Complete!</strong><br><br>
         <code>{{ flag }}</code>
     </div>
@@ -23,28 +23,28 @@
 
     <div class="stats-grid">
         <div class="stat-card">
-            <i data-lucide="package"></i>
+            <span class="material-symbols-rounded">inventory_2</span>
             <div>
                 <h3>{{ product_count }}</h3>
                 <p>Products</p>
             </div>
         </div>
         <div class="stat-card">
-            <i data-lucide="users"></i>
+            <span class="material-symbols-rounded">group</span>
             <div>
                 <h3>{{ user_count }}</h3>
                 <p>Users</p>
             </div>
         </div>
         <div class="stat-card">
-            <i data-lucide="dollar-sign"></i>
+            <span class="material-symbols-rounded">payments</span>
             <div>
                 <h3>${{ "%.0f"|format(revenue) }}+</h3>
                 <p>Revenue</p>
             </div>
         </div>
         <div class="stat-card">
-            <i data-lucide="trending-up"></i>
+            <span class="material-symbols-rounded">trending_up</span>
             <div>
                 <h3>+24%</h3>
                 <p>Growth</p>
