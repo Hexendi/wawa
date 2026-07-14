@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAWA SHOP - {% block title %}Home{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/static/style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo"><img src="/static/logowawa.png" alt="WAWA SHOP Logo" height="40"> WAWA<span>SHOP</span></a>
+            <a href="/" class="logo"><img src="/static/logowawa.png" alt="WAWA SHOP Logo"></a>
             <div class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
+                <i data-lucide="menu"></i>
             </div>
             <div class="nav-links" id="navLinks">
-                <a href="/"><i class="fas fa-home"></i> Home</a>
-                <a href="/shop"><i class="fas fa-shopping-bag"></i> Shop</a>
-                <a href="/search"><i class="fas fa-search"></i> Search</a>
-                <a href="/about"><i class="fas fa-info-circle"></i> About</a>
-                <a href="/profile"><i class="fas fa-user-circle"></i> Profile</a>
-                <a href="/admin" class="nav-admin"><i class="fas fa-lock"></i> Admin</a>
+                <a href="/"><i data-lucide="home"></i> Home</a>
+                <a href="/shop"><i data-lucide="shopping-bag"></i> Shop</a>
+                <a href="/search"><i data-lucide="search"></i> Search</a>
+                <a href="/about"><i data-lucide="info"></i> About</a>
+                <a href="/profile"><i data-lucide="circle-user"></i> Profile</a>
+                <a href="/admin" class="nav-admin"><i data-lucide="lock"></i> Admin</a>
             </div>
         </div>
     </nav>
@@ -32,13 +32,13 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3><i class="fas fa-store"></i> WAWA SHOP</h3>
+                <h3><i data-lucide="store"></i> WAWA SHOP</h3>
                 <p>Your premium destination for the best tech and accessories. Quality products at unbeatable prices.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="github"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -59,13 +59,13 @@
             </div>
             <div class="footer-section">
                 <h4>Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley, CA</p>
-                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                <p><i class="fas fa-envelope"></i> support@wawashop.com</p>
+                <p><i data-lucide="map-pin"></i> 123 Tech Street, Silicon Valley, CA</p>
+                <p><i data-lucide="phone"></i> +1 (555) 123-4567</p>
+                <p><i data-lucide="mail"></i> support@wawashop.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 WAWA SHOP. All rights reserved. | <i class="fas fa-shield-alt"></i> Secure Shopping</p>
+            <p>&copy; 2026 WAWA SHOP. All rights reserved. | <i data-lucide="shield-check"></i> Secure Shopping</p>
         </div>
     </footer>
 
@@ -73,6 +73,7 @@
         document.getElementById('navToggle')?.addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('active');
         });
+        lucide.createIcons();
     </script>
 </body>
 </html>

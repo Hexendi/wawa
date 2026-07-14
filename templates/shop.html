@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="page-header">
-    <h1><i class="fas fa-shopping-bag"></i> Our Products</h1>
+    <h1><i data-lucide="shopping-bag"></i> Our Products</h1>
     <p>Browse our complete catalog of premium tech products</p>
 </div>
 
@@ -12,14 +12,14 @@
     <div class="product-card">
         <a href="/product/{{ product.id }}" class="product-image">
             <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
-            <div class="product-overlay"><i class="fas fa-eye"></i> View Details</div>
+            <div class="product-overlay"><i data-lucide="eye"></i> View Details</div>
         </a>
         <div class="product-info">
             <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
             <p>{{ product.description[:60] }}{% if product.description|length > 60 %}...{% endif %}</p>
             <div class="product-footer">
                 <span class="price">${{ "%.2f"|format(product.price) }}</span>
-                <a href="/product/{{ product.id }}" class="btn btn-sm"><i class="fas fa-info-circle"></i></a>
+                <a href="/product/{{ product.id }}" class="btn btn-sm"><i data-lucide="info"></i></a>
             </div>
         </div>
     </div>

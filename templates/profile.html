@@ -4,33 +4,33 @@
 
 <div class="profile-container">
     <div class="page-header">
-        <h1><i class="fas fa-user-circle"></i> My <span>Profile</span></h1>
+        <h1><i data-lucide="circle-user"></i> My <span>Profile</span></h1>
         <p>Your account information</p>
     </div>
 
     <div id="profileCard" class="profile-card">
         <div class="profile-avatar">
-            <i class="fas fa-user-circle"></i>
+            <i data-lucide="circle-user"></i>
         </div>
         <div class="profile-details">
             <div class="profile-field">
-                <label><i class="fas fa-hashtag"></i> ID</label>
+                <label><i data-lucide="hash"></i> ID</label>
                 <span id="pId">-</span>
             </div>
             <div class="profile-field">
-                <label><i class="fas fa-user"></i> Username</label>
+                <label><i data-lucide="user"></i> Username</label>
                 <span id="pUsername">-</span>
             </div>
             <div class="profile-field">
-                <label><i class="fas fa-shield-alt"></i> Role</label>
+                <label><i data-lucide="shield"></i> Role</label>
                 <span id="pRole">-</span>
             </div>
             <div class="profile-field">
-                <label><i class="fas fa-envelope"></i> Email</label>
+                <label><i data-lucide="mail"></i> Email</label>
                 <span id="pEmail">-</span>
             </div>
             <div class="profile-field">
-                <label><i class="fas fa-info-circle"></i> Bio</label>
+                <label><i data-lucide="info"></i> Bio</label>
                 <span id="pBio">-</span>
             </div>
         </div>
@@ -48,6 +48,7 @@
             document.getElementById('pRole').textContent = data.role;
             document.getElementById('pEmail').textContent = data.email;
             document.getElementById('pBio').textContent = data.bio || 'N/A';
+            lucide.createIcons();
         });
 })();
 </script>
