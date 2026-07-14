@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+
+<div class="page-header">
+    <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+    <p>We'd love to hear from you</p>
+</div>
+
+<div class="contact-grid">
+    <div class="contact-info">
+        <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Visit Us</h3>
+            <p>123 Tech Street<br>Silicon Valley, CA 94025</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-phone"></i>
+            <h3>Call Us</h3>
+            <p>+1 (555) 123-4567<br>Mon-Fri 9AM-6PM PST</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Us</h3>
+            <p>support@wawashop.com<br>We reply within 24h</p>
+        </div>
+    </div>
+    <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form>
+            <div class="form-row">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <input type="text" placeholder="Subject" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

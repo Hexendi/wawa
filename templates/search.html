@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+
+<div class="search-container">
+    <div class="page-header">
+        <h1><i class="fas fa-search"></i> Search <span>Products</span></h1>
+        <p>Find what you're looking for in our catalog</p>
+    </div>
+
+    <div class="search-box">
+        <form method="GET" action="/search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" name="q" placeholder="Search by product name or description..." value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if query %}
+    <div class="search-results">
+        <!-- Search term is rendered below without sanitization (|safe filter) -->
+        <div class="search-query-display">
+            <h3><i class="fas fa-list"></i> Search results for: {{ query|safe }}</h3>
+        </div>
+
+        {% if results %}
+            <div class="products-grid search-grid">
+                {% for product in results %}
+                <div class="product-card">
+                    <a href="/product/{{ product.id }}" class="product-image">
+                        <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
+                    </a>
+                    <div class="product-info">
+                        <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
+                        <p>{{ product.description[:50] }}...</p>
+                        <div class="product-footer">
+                            <span class="price">${{ "%.2f"|format(product.price) }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-results">
+                <i class="fas fa-search-minus"></i>
+                <h3>No products found</h3>
+                <p>Try a different search term.</p>
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

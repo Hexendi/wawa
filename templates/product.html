@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+
+<div class="product-detail">
+    <a href="/shop" class="back-link"><i class="fas fa-arrow-left"></i> Back to Shop</a>
+    <div class="product-detail-grid">
+        <div class="product-detail-image">
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+        </div>
+        <div class="product-detail-info">
+            <span class="product-badge"><i class="fas fa-tag"></i> New Arrival</span>
+            <h1>{{ product.name }}</h1>
+            <div class="product-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>(42 reviews)</span>
+            </div>
+            <p class="product-detail-price">${{ "%.2f"|format(product.price) }}</p>
+            <p class="product-detail-desc">{{ product.description }}</p>
+            <div class="product-actions">
+                <button class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                <button class="btn btn-secondary btn-lg"><i class="fas fa-heart"></i> Wishlist</button>
+            </div>
+            <div class="product-meta">
+                <p><i class="fas fa-check-circle" style="color: var(--success);"></i> In Stock</p>
+                <p><i class="fas fa-truck"></i> Free shipping on orders over $50</p>
+                <p><i class="fas fa-undo"></i> 30-day easy returns</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

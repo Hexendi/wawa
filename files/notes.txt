@@ -1,0 +1,8 @@
+WAWA SHOP - Internal Notes
+==========================
+
+TODO:
+- Fix the search functionality
+- Update product images
+- Review admin panel security
+- Add more payment options
