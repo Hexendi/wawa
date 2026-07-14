@@ -72,7 +72,7 @@ a { color: inherit; text-decoration: none; }
     align-items: center;
     gap: 0.5rem;
 }
-.logo i { color: var(--accent); font-size: 1.2rem; }
+.logo img { height: 40px; width: auto; }
 .logo span { color: var(--accent); }
 
 .nav-toggle { display: none; color: var(--text); font-size: 1.3rem; cursor: pointer; }
