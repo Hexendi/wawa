@@ -87,6 +87,10 @@ def product_detail(pid):
         return redirect('/shop')
     return render_template('product.html', product=product)
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')

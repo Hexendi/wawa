@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+
+<div class="profile-container">
+    <div class="page-header">
+        <h1><i class="fas fa-user-circle"></i> My <span>Profile</span></h1>
+        <p>Your account information</p>
+    </div>
+
+    <div id="profileCard" class="profile-card">
+        <div class="profile-avatar">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="profile-details">
+            <div class="profile-field">
+                <label><i class="fas fa-hashtag"></i> ID</label>
+                <span id="pId">-</span>
+            </div>
+            <div class="profile-field">
+                <label><i class="fas fa-user"></i> Username</label>
+                <span id="pUsername">-</span>
+            </div>
+            <div class="profile-field">
+                <label><i class="fas fa-shield-alt"></i> Role</label>
+                <span id="pRole">-</span>
+            </div>
+            <div class="profile-field">
+                <label><i class="fas fa-envelope"></i> Email</label>
+                <span id="pEmail">-</span>
+            </div>
+            <div class="profile-field">
+                <label><i class="fas fa-info-circle"></i> Bio</label>
+                <span id="pBio">-</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    fetch('/api/user/PROFILE?id=123')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.error) return;
+            document.getElementById('pId').textContent = data.id;
+            document.getElementById('pUsername').textContent = data.username;
+            document.getElementById('pRole').textContent = data.role;
+            document.getElementById('pEmail').textContent = data.email;
+            document.getElementById('pBio').textContent = data.bio || 'N/A';
+        });
+})();
+</script>
+
+{% endblock %}
