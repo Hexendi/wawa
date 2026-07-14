@@ -18,10 +18,17 @@
 
     {% if query %}
     <div class="search-results">
-        <!-- Search term is rendered below without sanitization (|safe filter) -->
         <div class="search-query-display">
             <h3><i class="fas fa-list"></i> Search results for: {{ query|safe }}</h3>
         </div>
+
+        {% if xss_triggered %}
+        <div class="flag-box">
+            <i class="fas fa-flag"></i>
+            <strong>Challenge Complete!</strong><br><br>
+            <code>0xmr{r3fl3ct3d_xss_1nj3ct10n}</code>
+        </div>
+        {% endif %}
 
         {% if results %}
             <div class="products-grid search-grid">

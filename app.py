@@ -166,10 +166,17 @@ def search():
         results = []
     conn.close()
 
-    if '0xmr{' not in str(query):
-        resp.set_cookie('flag', '0xmr{xss_c00k13_th3ft_ftw}')
+    import re
+    xss_patterns = [
+        r'<script', r'<iframe', r'<embed', r'<object', r'<applet',
+        r'onerror=', r'onload=', r'onclick=', r'onfocus=',
+        r'onmouseover=', r'ontoggle=', r'onstart=',
+        r'javascript:',
+        r'expression\(', r'url\(',
+    ]
+    xss_triggered = bool(query and any(re.search(p, query, re.IGNORECASE) for p in xss_patterns))
 
-    html = render_template('search.html', query=query, results=results)
+    html = render_template('search.html', query=query, results=results, xss_triggered=xss_triggered)
     resp.data = html
     return resp
 
