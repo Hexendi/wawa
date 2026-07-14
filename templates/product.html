@@ -3,34 +3,34 @@
 {% block content %}
 
 <div class="product-detail">
-    <a href="/shop" class="back-link"><span class="material-symbols-rounded">arrow_back</span> Back to Shop</a>
+    <a href="/shop" class="back-link"><i class="ph ph-arrow-left"></i> Back to Shop</a>
     <div class="product-detail-grid">
         <div class="product-detail-image">
             <img src="{{ product.image }}" alt="{{ product.name }}">
         </div>
         <div class="product-detail-info">
-            <span class="product-badge"><span class="material-symbols-rounded">new_releases</span> New Arrival</span>
+            <span class="product-badge"><i class="ph-fill ph-tag"></i> New Arrival</span>
             <h1>{{ product.name }}</h1>
             <div class="product-rating">
-                <span class="material-symbols-rounded filled-star">star</span>
-                <span class="material-symbols-rounded filled-star">star</span>
-                <span class="material-symbols-rounded filled-star">star</span>
-                <span class="material-symbols-rounded filled-star">star</span>
-                <span class="material-symbols-rounded">star_half</span>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph ph-star-half"></i>
                 <span>(42 reviews)</span>
             </div>
             <p class="product-detail-price">${{ "%.2f"|format(product.price) }}</p>
             <p class="product-detail-desc">{{ product.description }}</p>
             <div class="product-actions">
                 <form action="/purchase/{{ product.id }}" method="POST" style="display:inline;">
-                    <button type="submit" class="btn btn-primary btn-lg"><span class="material-symbols-rounded">shopping_cart</span> Buy Now</button>
+                    <button type="submit" class="btn btn-primary btn-lg"><i class="ph ph-shopping-cart"></i> Buy Now</button>
                 </form>
-                <button class="btn btn-secondary btn-lg"><span class="material-symbols-rounded">favorite</span> Wishlist</button>
+                <button class="btn btn-outline btn-lg"><i class="ph ph-heart"></i> Wishlist</button>
             </div>
             <div class="product-meta">
-                <p><span class="material-symbols-rounded" style="color: var(--success);">check_circle</span> In Stock</p>
-                <p><span class="material-symbols-rounded">local_shipping</span> Free shipping on orders over $50</p>
-                <p><span class="material-symbols-rounded">replay</span> 30-day easy returns</p>
+                <p><i class="ph-fill ph-check-circle" style="color: var(--success);"></i> In Stock</p>
+                <p><i class="ph ph-truck"></i> Free shipping on orders over $50</p>
+                <p><i class="ph ph-arrows-counter-clockwise"></i> 30-day easy returns</p>
             </div>
         </div>
     </div>

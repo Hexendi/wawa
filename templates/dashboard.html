@@ -4,18 +4,18 @@
 
 <div class="dashboard">
     <div class="dashboard-header">
-        <h2><span class="material-symbols-rounded">dashboard</span> Admin Dashboard</h2>
-        <a href="/logout" class="btn btn-sm btn-logout"><span class="material-symbols-rounded">logout</span> Logout</a>
+        <h2><i class="ph ph-squares-four"></i> Admin Dashboard</h2>
+        <a href="/logout" class="btn btn-sm btn-logout"><i class="ph ph-sign-out"></i> Logout</a>
     </div>
 
     <div class="welcome-box">
-        <h3><span class="material-symbols-rounded">shield_person</span> Welcome, {{ username }}!</h3>
+        <h3><i class="ph ph-shield-check"></i> Welcome, {{ username }}!</h3>
         <p>You are logged in as an administrator. From here you can manage products, users, and site settings.</p>
     </div>
 
     {% if flag %}
     <div class="flag-box">
-        <span class="material-symbols-rounded">flag</span>
+        <i class="ph-fill ph-flag"></i>
         <strong>Challenge Complete!</strong><br><br>
         <code>{{ flag }}</code>
     </div>
@@ -23,28 +23,28 @@
 
     <div class="stats-grid">
         <div class="stat-card">
-            <span class="material-symbols-rounded">inventory_2</span>
+            <i class="ph ph-package"></i>
             <div>
                 <h3>{{ product_count }}</h3>
                 <p>Products</p>
             </div>
         </div>
         <div class="stat-card">
-            <span class="material-symbols-rounded">group</span>
+            <i class="ph ph-users"></i>
             <div>
                 <h3>{{ user_count }}</h3>
                 <p>Users</p>
             </div>
         </div>
         <div class="stat-card">
-            <span class="material-symbols-rounded">payments</span>
+            <i class="ph ph-currency-dollar"></i>
             <div>
                 <h3>${{ "%.0f"|format(revenue) }}+</h3>
                 <p>Revenue</p>
             </div>
         </div>
         <div class="stat-card">
-            <span class="material-symbols-rounded">trending_up</span>
+            <i class="ph ph-trend-up"></i>
             <div>
                 <h3>+24%</h3>
                 <p>Growth</p>

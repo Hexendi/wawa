@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="page-header">
-    <h1><span class="material-symbols-rounded">shopping_bag</span> Our Products</h1>
+    <h1><i class="ph ph-bag"></i> Our Products</h1>
     <p>Browse our complete catalog of premium tech products</p>
 </div>
 
@@ -12,14 +12,14 @@
     <div class="product-card">
         <a href="/product/{{ product.id }}" class="product-image">
             <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
-            <div class="product-overlay"><span class="material-symbols-rounded">visibility</span> View Details</div>
+            <div class="product-overlay"><i class="ph ph-eye"></i> View Details</div>
         </a>
         <div class="product-info">
             <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
             <p>{{ product.description[:60] }}{% if product.description|length > 60 %}...{% endif %}</p>
             <div class="product-footer">
                 <span class="price">${{ "%.2f"|format(product.price) }}</span>
-                <a href="/product/{{ product.id }}" class="btn btn-sm"><span class="material-symbols-rounded">info</span></a>
+                <a href="/product/{{ product.id }}" class="btn btn-sm btn-primary"><i class="ph ph-info"></i></a>
             </div>
         </div>
     </div>

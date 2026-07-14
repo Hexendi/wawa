@@ -4,43 +4,62 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Welcome to <span class="highlight">WAWA SHOP</span></h1>
-        <p>Discover premium tech and accessories at unbeatable prices. Your one-stop shop for everything digital.</p>
+        <div class="hero-badge">New Season Collection</div>
+        <h1>Discover the Best <span class="highlight">Tech & Gear</span></h1>
+        <p>Premium products, unbeatable prices, delivered to your door. Shop the latest in tech and accessories.</p>
         <div class="hero-buttons">
-            <a href="/shop" class="btn btn-primary"><span class="material-symbols-rounded">shopping_bag</span> Shop Now</a>
-            <a href="/search" class="btn btn-secondary"><span class="material-symbols-rounded">search</span> Search Products</a>
+            <a href="/shop" class="btn btn-primary btn-lg"><i class="ph ph-bag"></i> Shop Now</a>
+            <a href="/search" class="btn btn-outline btn-lg"><i class="ph ph-magnifying-glass"></i> Browse Products</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <strong>500+</strong>
+                <span>Products</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <strong>10K+</strong>
+                <span>Customers</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <strong>4.9</strong>
+                <span>Rating</span>
+            </div>
         </div>
     </div>
-    <div class="hero-image">
-        <span class="material-symbols-rounded hero-icon">shopping_cart</span>
+    <div class="hero-visual">
+        <div class="hero-shape"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <i class="ph ph-shopping-bag-open hero-main-icon"></i>
     </div>
 </section>
 
 <section class="features">
     <div class="feature-card">
-        <span class="material-symbols-rounded">local_shipping</span>
+        <div class="feature-icon"><i class="ph ph-truck"></i></div>
         <h3>Free Shipping</h3>
         <p>On orders over $50</p>
     </div>
     <div class="feature-card">
-        <span class="material-symbols-rounded">shield</span>
+        <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
         <h3>Secure Payment</h3>
         <p>100% secure checkout</p>
     </div>
     <div class="feature-card">
-        <span class="material-symbols-rounded">replay</span>
+        <div class="feature-icon"><i class="ph ph-arrows-counter-clockwise"></i></div>
         <h3>Easy Returns</h3>
         <p>30-day return policy</p>
     </div>
     <div class="feature-card">
-        <span class="material-symbols-rounded">headset_mic</span>
+        <div class="feature-icon"><i class="ph ph-headset"></i></div>
         <h3>24/7 Support</h3>
         <p>Dedicated support team</p>
     </div>
 </section>
 
 <section class="section-header">
-    <h2><span class="material-symbols-rounded">star</span> Featured Products</h2>
+    <h2><i class="ph ph-star"></i> Featured Products</h2>
     <p>Top picks from our catalog</p>
 </section>
 
@@ -49,27 +68,27 @@
     <div class="product-card">
         <a href="/product/{{ product.id }}" class="product-image">
             <img src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
-            <div class="product-overlay"><span class="material-symbols-rounded">visibility</span> View Details</div>
+            <div class="product-overlay"><i class="ph ph-eye"></i> View Details</div>
         </a>
         <div class="product-info">
             <h3><a href="/product/{{ product.id }}">{{ product.name }}</a></h3>
             <p>{{ product.description[:50] }}{% if product.description|length > 50 %}...{% endif %}</p>
             <div class="product-footer">
                 <span class="price">${{ "%.2f"|format(product.price) }}</span>
-                <a href="/product/{{ product.id }}" class="btn btn-sm"><span class="material-symbols-rounded">shopping_cart</span></a>
+                <a href="/product/{{ product.id }}" class="btn btn-sm btn-primary"><i class="ph ph-shopping-cart"></i></a>
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
 
-<div class="text-center" style="margin-top: 2rem;">
-    <a href="/shop" class="btn btn-primary"><span class="material-symbols-rounded">grid_view</span> View All Products</a>
+<div class="text-center" style="margin-top: 2.5rem;">
+    <a href="/shop" class="btn btn-outline"><i class="ph ph-grid-four"></i> View All Products</a>
 </div>
 
 <section class="newsletter">
     <div class="newsletter-content">
-        <h2><span class="material-symbols-rounded">mail</span> Stay Updated</h2>
+        <h2><i class="ph ph-paper-plane-tilt"></i> Stay Updated</h2>
         <p>Subscribe to our newsletter for exclusive deals and new arrivals.</p>
         <form class="newsletter-form">
             <input type="email" placeholder="Enter your email" required>

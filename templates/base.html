@@ -6,24 +6,24 @@
     <title>WAWA SHOP - {% block title %}Home{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo"><img src="/static/logowawa.png" alt="WAWA SHOP Logo"></a>
+            <a href="/" class="logo"><img src="/static/logowawa.png" alt="WAWA SHOP"></a>
             <div class="nav-toggle" id="navToggle">
-                <span class="material-symbols-rounded">menu</span>
+                <i class="ph ph-list"></i>
             </div>
             <div class="nav-links" id="navLinks">
-                <a href="/"><span class="material-symbols-rounded">home</span> Home</a>
-                <a href="/shop"><span class="material-symbols-rounded">shopping_bag</span> Shop</a>
-                <a href="/search"><span class="material-symbols-rounded">search</span> Search</a>
-                <a href="/about"><span class="material-symbols-rounded">info</span> About</a>
-                <a href="/profile"><span class="material-symbols-rounded">account_circle</span> Profile</a>
-                <a href="/admin" class="nav-admin"><span class="material-symbols-rounded">lock</span> Admin</a>
+                <a href="/"><i class="ph ph-house"></i> Home</a>
+                <a href="/shop"><i class="ph ph-bag"></i> Shop</a>
+                <a href="/search"><i class="ph ph-magnifying-glass"></i> Search</a>
+                <a href="/about"><i class="ph ph-info"></i> About</a>
+                <a href="/profile"><i class="ph ph-user-circle"></i> Profile</a>
+                <a href="/admin" class="nav-admin"><i class="ph ph-lock-simple"></i> Admin</a>
             </div>
         </div>
     </nav>
@@ -35,13 +35,13 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3><span class="material-symbols-rounded">storefront</span> WAWA SHOP</h3>
+                <h3><i class="ph ph-storefront"></i> WAWA SHOP</h3>
                 <p>Your premium destination for the best tech and accessories. Quality products at unbeatable prices.</p>
                 <div class="social-links">
-                    <a href="#"><span class="material-symbols-rounded">language</span></a>
-                    <a href="#"><span class="material-symbols-rounded">chat</span></a>
-                    <a href="#"><span class="material-symbols-rounded">photo_camera</span></a>
-                    <a href="#"><span class="material-symbols-rounded">code</span></a>
+                    <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-github-logo"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -62,13 +62,13 @@
             </div>
             <div class="footer-section">
                 <h4>Contact Info</h4>
-                <p><span class="material-symbols-rounded">location_on</span> 123 Tech Street, Silicon Valley, CA</p>
-                <p><span class="material-symbols-rounded">call</span> +1 (555) 123-4567</p>
-                <p><span class="material-symbols-rounded">mail</span> support@wawashop.com</p>
+                <p><i class="ph ph-map-pin"></i> 123 Tech Street, Silicon Valley, CA</p>
+                <p><i class="ph ph-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="ph ph-envelope-simple"></i> support@wawashop.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 WAWA SHOP. All rights reserved. | <span class="material-symbols-rounded">verified_user</span> Secure Shopping</p>
+            <p>&copy; 2026 WAWA SHOP. All rights reserved. <i class="ph ph-shield-check"></i> Secure Shopping</p>
         </div>
     </footer>
 
