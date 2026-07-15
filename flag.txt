@@ -1,10 +1,9 @@
 ========================================
-WAWA SHOP - SECRET BACKUP FILE
+WAWA SHOP - SECRET FLAG
 ========================================
 
 FLAG: 0xmr{d1r_tr4v3rs4l_s3cr3ts}
 
 ========================================
-This backup contains sensitive configuration
-data. Do not expose to unauthorized personnel.
+CONGRATULATIONS , YOU GOT THE FLAG
 ========================================
