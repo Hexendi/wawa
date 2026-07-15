@@ -1,0 +1,200 @@
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                  INCIDENT RESPONSE TIMELINE                           ║
+║                  Operation Iron Wall                                   ║
+║                  Classification: CONFIDENTIAL                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+INCIDENT ID: IRON-WALL-2026-0715
+SEVERITY: CRITICAL
+STATUS: CONTAINED
+ANALYST: IR Team Alpha
+DATE: 2026-07-15
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 1: INITIAL COMPROMISE
+═══════════════════════════════════════════════════════════════════════
+
+[14:22:05 UTC] RECONNAISSANCE
+  Source IP:     198.51.100.77
+  Target:        prod-web-03 (10.0.1.13)
+  Activity:      Port scanning, directory enumeration
+  Evidence:      access.log — requests to /robots.txt, /admin, /wp-admin
+
+[14:25:00 UTC] BRUTE FORCE ATTACK BEGINS
+  Source IP:     198.51.100.77
+  Target:        prod-web-03 (10.0.1.13)
+  Endpoint:      POST /api/auth/login
+  Method:        Credential stuffing / password spraying
+  Duration:      ~10 minutes (14:25:00 - 14:35:00 UTC)
+  Attempts:      ~300+ requests
+  HTTP Codes:    401 (Invalid credentials) / 403 (Rate limited)
+  Evidence:      access.log — concentrated POST /api/auth/login failures
+
+[14:35:00 UTC] SQL INJECTION ATTEMPTS BEGIN
+  Source IP:     198.51.100.77
+  Target:        prod-web-03 (10.0.1.13)
+  Tool:          sqlmap/1.7.12
+  Endpoints:     /api/products, /api/search, /api/orders, /api/users
+  Payloads:      UNION-based, boolean-based blind, time-based blind
+  Evidence:      access.log — SQLi patterns in query strings
+
+[14:38:22 UTC] FIRST SUCCESSFUL SQL INJECTION (CREDENTIAL BYPASS)
+  Source IP:     198.51.100.77
+  Target:        prod-web-03 (10.0.1.13)
+  Endpoint:      POST /api/auth/login
+  HTTP Status:   200 (SUCCESS)
+  Method:        Auth bypass via time-based blind SQLi
+  Evidence:      access.log — first 200 response after sustained 401/403
+  Note:          This is the breakthrough moment — attacker gained access
+
+[14:38:25 UTC] POST-EXPLOITATION — INITIAL ACCESS CONFIRMED
+  Source IP:     198.51.100.77
+  Target:        prod-web-03 (10.0.1.13)
+  Activity:      Dashboard access, admin API enumeration
+  Evidence:      access.log — admin endpoints accessed with valid session
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 2: PERSISTENCE ESTABLISHMENT
+═══════════════════════════════════════════════════════════════════════
+
+[14:40:15 UTC] REVERSE SHELL ESTABLISHED
+  Target:        prod-web-03 (10.0.1.13)
+  Method:        bash reverse shell via /tmp/.cache_update
+  C2 Callback:   198.51.100.77:4444
+  Evidence:      /var/log/auth.log — shell spawned from www-data user
+
+[14:41:30 UTC] CRON PERSISTENCE INSTALLED
+  Target:        prod-web-03 (10.0.1.13)
+  Method:        Cron job added to /var/spool/cron/crontabs/www-data
+  Entry:         */5 * * * * /tmp/.cache_update >/dev/null 2>&1
+  Binary:        /tmp/.cache_update (SHA256: svc_monitor hash)
+  Evidence:      crontab -l output, file system artifacts
+
+[14:42:00 UTC] PRIVILEGE ESCALATION
+  Target:        prod-web-03 (10.0.1.13)
+  Method:        Exploited SUID binary (CVE-2026-XXXXX)
+  Result:        www-data -> root
+  Evidence:      /var/log/syslog, capability dump
+
+[14:43:15 UTC] SECONDARY PERSISTENCE
+  Target:        prod-web-03 (10.0.1.13)
+  Method:        SSH authorized_keys + systemd service
+  SSH Key:       ssh-rsa AAAAB3...attacker_key...== attacker@darknet
+  Service:       /etc/systemd/system/sys.service
+  Evidence:      ~/.ssh/authorized_keys, systemctl list-unit-files
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 3: LATERAL MOVEMENT
+═══════════════════════════════════════════════════════════════════════
+
+[14:45:00 UTC] NETWORK SCANNING FROM PROD-WEB-03
+  Source:        prod-web-03 (10.0.1.13)
+  Method:        Internal network scan (10.0.1.0/24)
+  Discovery:     Identified 3 additional vulnerable hosts
+  Evidence:      /var/log/syslog — nmap output captured
+
+[14:46:30 UTC] LATERAL MOVEMENT — HOST 1
+  Source:        prod-web-03 (10.0.1.13) -> 10.0.1.15 (db-primary-01)
+  Method:        SSH with harvested credentials
+  Credentials:   admin:Pr0d_db_2026! (found in config file)
+  Evidence:      /var/log/auth.log on db-primary-01
+  Compromised:   Database server (PostgreSQL)
+
+[14:48:15 UTC] LATERAL MOVEMENT — HOST 2
+  Source:        db-primary-01 (10.0.1.15) -> 10.0.1.22 (app-worker-01)
+  Method:        SSH key reuse from prod-web-03
+  Evidence:      /var/log/auth.log on app-worker-01
+  Compromised:   Application worker node
+
+[14:50:00 UTC] LATERAL MOVEMENT — HOST 3
+  Source:        app-worker-01 (10.0.1.22) -> 10.0.1.8 (monitoring-01)
+  Method:        Pass-the-hash via captured NTLM
+  Evidence:      /var/log/auth.log on monitoring-01
+  Compromised:   Monitoring server (Grafana/Prometheus)
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 4: DATA EXFILTRATION
+═══════════════════════════════════════════════════════════════════════
+
+[14:45:30 UTC] DNS TUNNELING BEGINS
+  Source:        198.51.100.77
+  C2 Domain:     update-cdn-service.com
+  Method:        DNS A record queries with base64-encoded subdomains
+  Data:          Database dumps, config files, credential stores
+  Evidence:      DNS query logs, network capture
+
+[14:52:00 UTC] ADDITIONAL EXFILTRATION
+  Sources:       10.0.1.13, 10.0.1.15, 10.0.1.22, 10.0.1.8
+  Method:        HTTPS to pastebin-like service
+  Destination:   https://files-share[.]xyz/upload
+  Evidence:      Proxy logs, TLS inspection
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 5: DETECTION AND CONTAINMENT
+═══════════════════════════════════════════════════════════════════════
+
+[15:05:00 UTC] SIEM ALERT TRIGGERED
+  Alert:         Anomalous DNS queries to unknown domain
+  Source:        SOC automated detection
+  Severity:      High
+  Evidence:      SIEM dashboard — DNS query volume spike
+
+[15:10:00 UTC] INCIDENT RESPONSE INITIATED
+  Action:        IR team mobilized
+  Evidence:      Ticket #IR-2026-0715 created
+
+[15:15:00 UTC] HOST ISOLATION
+  Hosts Isolated: 10.0.1.13 (prod-web-03)
+                   10.0.1.15 (db-primary-01)
+                   10.0.1.22 (app-worker-01)
+                   10.0.1.8  (monitoring-01)
+  Method:        Network quarantine via firewall rules
+  Evidence:      Network ACL changes logged
+
+[15:30:00 UTC] THREAT CONTAINED
+  Status:        All compromised hosts isolated
+  Persistence:   Cron jobs removed, SSH keys revoked, systemd services stopped
+  Evidence:      Remediation checklist completed
+
+═══════════════════════════════════════════════════════════════════════
+SUMMARY
+═══════════════════════════════════════════════════════════════════════
+
+COMPROMISED HOSTS:
+  1. 10.0.1.13  — prod-web-03     (Initial compromise)
+  2. 10.0.1.15  — db-primary-01   (Lateral movement)
+  3. 10.0.1.22  — app-worker-01   (Lateral movement)
+  4. 10.0.1.8   — monitoring-01   (Lateral movement)
+  5. 198.51.100.77 — Attacker C2  (External attacker infrastructure)
+
+TOTAL UNIQUE COMPROMISED IPs: 5
+
+EXPLOITED SERVICE: OpenSSH
+  - Initial access via SSH credential brute force
+  - Lateral movement via SSH key reuse and credential theft
+  - Persistence via SSH authorized_keys
+
+ATTACK CHAIN:
+  Recon -> Brute Force -> SQL Injection -> Reverse Shell ->
+  Cron Persistence -> Privilege Escalation -> Lateral Movement (3 hosts) ->
+  Data Exfiltration via DNS Tunneling
+
+IOC SUMMARY:
+  IP: 198.51.100.77
+  Domain: update-cdn-service.com
+  Domain: dark-relay.c2-server.xyz
+  Hash: svc_monitor (SHA256: see binary)
+  Path: /tmp/.cache_update
+  Cron: */5 * * * * /tmp/.cache_update
+  Service: /etc/systemd/system/sys.service
+
+═══════════════════════════════════════════════════════════════════════
+END OF REPORT
+═══════════════════════════════════════════════════════════════════════
+
+CHALLENGE TASK: Calculate total compromised unique IPs and identify the
+exploited service. Format the flag as: 0xmr{service_total_ips}
+
+HINT: Count ALL unique IPs involved in the compromise (including attacker
+infrastructure). The exploited service is the primary access vector.

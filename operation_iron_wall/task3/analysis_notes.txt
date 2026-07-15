@@ -1,0 +1,21 @@
+=== Binary Analysis Notes ===
+
+File: svc_monitor
+MD5: f33ac7d22fe88efe5c572603e416c91a
+SHA256: 9ec13fd54345effcd1a27fd0e9c5bf1f6c43c4d45950d5c161fb8e88be433784
+
+Findings:
+- ELF 64-bit executable (x86-64)
+- Statically linked
+- Contains anti-debugging techniques (ptrace check)
+- Embeds encrypted configuration data
+- XOR encryption with single-byte key
+- Hardcoded C2 URL (encrypted)
+- Config flag payload (encrypted)
+- Persistence via cron job
+- Lateral movement via SSH
+- DNS exfiltration capability
+
+Task: Find the hardcoded C2 URL and decode the config payload
+XOR key hint: The key is a single byte. Check for patterns.
+The key in hex is 0x42 (decimal 66, ASCII 'B')

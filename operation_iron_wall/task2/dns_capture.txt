@@ -1,0 +1,46 @@
+# Network Capture — DNS Queries (extracted from pcap)
+# Suspicious DNS tunnel activity detected
+# Source: 198.51.100.77 (compromised host)
+# Destination: Various DNS resolvers
+#
+# Protocol: DNS (UDP/53)
+# C2 Domain: update-cdn-service.com
+
+15/Jul/2026 14:45:00  198.51.100.77  ->  8.8.8.8  DNS Standard query A akamai.net
+15/Jul/2026 14:45:00  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.98.52
+15/Jul/2026 14:45:03  198.51.100.77  ->  8.8.8.8  DNS Standard query A cloudflare.com
+15/Jul/2026 14:45:03  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.59.64
+15/Jul/2026 14:45:04  198.51.100.77  ->  8.8.8.8  DNS Standard query A googleapis.com
+15/Jul/2026 14:45:04  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.65.187
+15/Jul/2026 14:45:06  198.51.100.77  ->  8.8.8.8  DNS Standard query A googleapis.com
+15/Jul/2026 14:45:06  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.241.160
+15/Jul/2026 14:45:08  198.51.100.77  ->  8.8.8.8  DNS Standard query A github.com
+15/Jul/2026 14:45:08  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.108.185
+15/Jul/2026 14:45:11  198.51.100.77  ->  8.8.8.8  DNS Standard query A github.com
+15/Jul/2026 14:45:11  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.203.231
+15/Jul/2026 14:45:13  198.51.100.77  ->  8.8.8.8  DNS Standard query A akamai.net
+15/Jul/2026 14:45:13  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.221.175
+15/Jul/2026 14:45:14  198.51.100.77  ->  8.8.8.8  DNS Standard query A cloudflare.com
+15/Jul/2026 14:45:14  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.119.170
+
+# ===== SUSPICIOUS DNS TUNNEL TRAFFIC BELOW =====
+
+15/Jul/2026 14:45:15  198.51.100.77  ->  8.8.8.8  DNS Standard query A MHhtcntkbjVfdHVuM2xfbTRsdzRyM18x.update-cdn-service.com
+15/Jul/2026 14:45:15  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 10.69.0.32
+15/Jul/2026 14:45:17  198.51.100.77  ->  8.8.8.8  DNS Standard query A googleapis.com
+15/Jul/2026 14:45:17  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.243.184
+15/Jul/2026 14:45:18  198.51.100.77  ->  8.8.8.8  DNS Standard query A NV9yMzRsfQ.update-cdn-service.com
+15/Jul/2026 14:45:18  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 10.69.1.10
+
+# ===== END OF SUSPICIOUS TRAFFIC =====
+
+15/Jul/2026 14:46:20  198.51.100.77  ->  8.8.8.8  DNS Standard query A windowsupdate.com
+15/Jul/2026 14:46:20  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.104.11
+15/Jul/2026 14:46:22  198.51.100.77  ->  8.8.8.8  DNS Standard query A google.com
+15/Jul/2026 14:46:22  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.109.53
+15/Jul/2026 14:46:24  198.51.100.77  ->  8.8.8.8  DNS Standard query A googleapis.com
+15/Jul/2026 14:46:24  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.119.133
+15/Jul/2026 14:46:25  198.51.100.77  ->  8.8.8.8  DNS Standard query A amazonaws.com
+15/Jul/2026 14:46:25  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.251.14
+15/Jul/2026 14:46:27  198.51.100.77  ->  8.8.8.8  DNS Standard query A cloudflare.com
+15/Jul/2026 14:46:27  8.8.8.8  ->  198.51.100.77  DNS Standard query response A 142.250.56.244

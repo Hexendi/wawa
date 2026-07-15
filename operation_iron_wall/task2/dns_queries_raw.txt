@@ -1,0 +1,11 @@
+# Raw DNS query data (hex encoded subdomain labels)
+# Each line: timestamp | hex_encoded_subdomain | query_type
+#
+# Decode hex -> ASCII to recover the base64 chunks
+# Then decode the concatenated base64 to reveal the hidden message
+
+14:45:00  4d486874636e746b626a5666644856754d32786662545273647a52794d313878  A
+14:45:02  4e5639794d7a52736651  A
+
+# Total chunks: 2
+# Concatenate all decoded ASCII strings and base64 decode the result

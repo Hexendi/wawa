@@ -1,0 +1,88 @@
+# strings output from: svc_monitor
+# File: svc_monitor
+# Size: 16896 bytes
+# Type: ELF 64-bit LSB executable, x86-64
+#
+# Hint: Some strings appear to be XOR-encoded
+# Hint: XOR key is a single byte (0x42 = 'B')
+# Hint: The C2 URL and config payload are encrypted
+#
+# --- Readable Strings ---
+
+Mozilla/5.0
+Connection established
+Beacon interval: 60s
+Config loaded successfully
+main
+__libc_start_main
+/lib64/ld-linux-x86-64.so.2
+libc.so.6
+printf
+malloc
+free
+memcpy
+socket
+connect
+send
+recv
+close
+/proc/self/exe
+/tmp/.cache_update
+chmod +x
+bash -c
+wget
+curl
+/bin/sh
+root
+encrypted_config
+decryption_key
+sleep
+fork
+ptrace
+anti_debug_enabled
+check_proc_self_status
+evasion_complete
+persist_via_cron
+lateral_move_ssh
+exfil_data_dns
+setup_persistence
+escalate_privileges
+dump_credentials
+harvest_tokens
+scan_network
+exploit_vuln
+payload_inject
+
+# --- Suspicious Strings (XOR-encoded, hex dump) ---
+
+# Encrypted string 1 (C2 URL):
+# Hex: 2a36363231786d6d262330296f30272e233b6c21706f3127303427306c3a3b386d202723212d2c
+# XOR decode with key 0x42 to reveal: [C2 SERVER URL]
+
+# Encrypted string 2 (Config payload):
+# Hex: 723a2f303921722e261d32307220271d732c2871213673722c1d2f762e357630713f
+# XOR decode with key 0x42 to reveal: [FLAG]
+
+# Encrypted string 3 (HTTP request):
+# Hex: 120d1116626d202723212d2c620a1616126d736c73
+# XOR decode with key 0x42 to reveal: HTTP request to C2
+
+# Encrypted string 4 (Host header):
+# Hex: 0a2d31367862262330296f30272e233b6c21706f3127303427306c3a3b38
+# XOR decode with key 0x42 to reveal: Host header
+
+# Encrypted string 5 (User-Agent):
+# Hex: 173127306f0325272c3678620f2d382b2e2e236d776c72
+# XOR decode with key 0x42 to reveal: User-Agent
+
+# Encrypted string 6 (Content-Type):
+# Hex: 012d2c36272c366f163b322778622332322e2b2123362b2d2c6d2d213627366f31363027232f
+# XOR decode with key 0x42 to reveal: Content-Type header
+
+# Encrypted string 7 (Config token):
+# Hex: 1a6f012d2c242b256f162d29272c7862
+# XOR decode with key 0x42 to reveal: Config token header
+
+# Encrypted string 8 (Status):
+# Hex: 3136233637317f2321362b3427642b267f
+# XOR decode with key 0x42 to reveal: Status payload
